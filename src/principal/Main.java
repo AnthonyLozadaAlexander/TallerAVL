@@ -6,11 +6,11 @@ import tad.TADVector;
 
 public class Main {
 	public static void main(String[] args) {
-		long inicio = System.nanoTime();
+		Long inicio = System.nanoTime();
 
-		ArbolAVL<Persona> arbol = new ArbolAVL<>("Arbol Taller AVL");
 		String[] nombres = { "Peter", "Donald", "Hugo", "Paco", "Luis", "Gohan", "Goku", "Piccolo", "Satan", "Krilin" };
 		TADVector<Persona> p = new TADVector<>(10, "Vector");
+		ArbolAVL<Persona> arbol = new ArbolAVL<>("Arbol Taller AVL");
 
 		for (int i = 0; i < nombres.length; i++) {
 			p.insertarElemento(new Persona(nombres[i], Algoritmos.cedulaAleatorio(), Algoritmos.aleatorio(18, 50)), i);
@@ -18,12 +18,18 @@ public class Main {
 		}
 		System.out.println("\n");
 
+		// muestra la informacion de todo el arbol
 		arbol.info();
 
-		int index = p.buscarElemento2(new Persona("Gohan", "", 0));
+		int index = 5;
 		Persona pBuscar = p.leerElemento(index);
+		System.out.println("\nBuscar Nodo Con Dato: " + pBuscar.getNombre());
+		System.out.println(arbol.buscar(pBuscar));
 
-		arbol.buscarNodo(pBuscar);
+		System.out.println("\nBuscar Nodo No Existente");
+		Persona persona = new Persona("Rogert", "084324564", 24);
+		System.out.println(arbol.buscar(persona));
+		arbol.eliminar(persona);
 
 		long fin = System.nanoTime();
 		System.out.println("Tiempo Total Ejecucion: " + (fin - inicio) + " [ns]");
