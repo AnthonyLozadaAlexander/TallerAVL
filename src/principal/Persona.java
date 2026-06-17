@@ -24,6 +24,11 @@ public class Persona implements Comparable<Persona> {
     }
 
     @Override
+    public String toString() {
+        return "Nombre: " + getNombre() + " Edad: " + getEdad() + " Cedula: " + getCedula();
+    }
+
+    @Override
     public int compareTo(Persona p) {
         if (this.edad < p.edad) {
             return -1; // retorna -1 cuando la edad actual es menor que la otra
