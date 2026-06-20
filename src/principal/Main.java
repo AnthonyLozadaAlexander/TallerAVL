@@ -56,7 +56,7 @@ public class Main {
 		avl.insertar(new Persona(nombres[8], Algoritmos.cedulaAleatorio(), 37));
 		avl.info();
 
-		rellenarVector(avl, p);
+		rellenarVector(avl, p); // rellenar el vector de personas usando el recorrido del arbol avl en preOrden
 
 		long inicioBuscar = System.nanoTime();
 		int index = 5;
@@ -73,6 +73,7 @@ public class Main {
 
 		System.out.println("\n    ELIMINAR LA RAIZ DEL AVL      \n");
 		avl.eliminar(avl.getRaiz().getClave());
+		avl.info();
 
 		System.out.println("Tiempo De Busqueda De Nodo Existente: " + (finalBuscar - inicioBuscar) + "[Ns]");
 		System.out.println("Tiempo De Busqueda De Nodo No Existente: "
